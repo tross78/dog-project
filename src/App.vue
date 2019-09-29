@@ -1,17 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div> <h2>Dog gallery <small>[uses https://dog.ceo/ API]</small></h2></div>
+    <div class="row">
+    <div class="column-left">
+    <breed-list v-bind:selectLimit="2"/>
+    </div>
+     <div class="column-right">
+       <breed-gallery/>
+     </div>
+  </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import BreedList from './components/BreedList.vue'
+import BreedGallery from './components/BreedGallery.vue'
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    BreedList,
+    BreedGallery
   }
 }
 </script>
@@ -23,6 +31,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+.row {
+  display: flex;
+}
+
+.column-left {
+  flex: 33%;
+    border-top: 2px solid lightgray;
+  border-left: 2px solid lightgray;
+}
+.column-right {
+  border: 2px solid lightgray;;
+  flex: 66%;
 }
 </style>
